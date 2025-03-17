@@ -1,28 +1,28 @@
 function SignIn() {
   return (
-    <div className="bg-amber-50 h-screen font-['Ubuntu'] flex flex-col gap-8">
-      <div className="text-center pt-20">
+    <div className="bg-gray-100 h-screen font-['Ubuntu'] flex flex-col gap-8">
+      <div className="text-center pt-15">
         <p className="font-['Ubuntu'] font-bold text-2xl">
           Unlock a world of endless entertainment
         </p>
         <p className="text-sm">Login to Discover ,Stream, and Enjoy!</p>
       </div>
-      <div className="bg-white p-6 size-80 flex flex-col">
+      <div className="bg-white self-center p-6 w-100 flex flex-col">
         <p className="font-bold text-2xl text-center pb-6">Sign in</p>
         <form className="flex flex-col gap-4">
-          <div className="flex flex-col bg-gray-100 p-1 pr-2">
-            <label className="font-bold text-sm">Email</label>
+          <div className="flex flex-col bg-gray-100 gap-1 p-1 pr-2">
+            <label className="font-bold text-gray-700 text-sm">Email</label>
             <input
-              className="font-['montserrat'] text-xs p-1"
+              className="font-['montserrat'] text-xs  focus:outline-none"
               type="text"
               placeholder="example.email@gmail.com"
             />
           </div>
-          <div className="flex flex-col bg-gray-100 p-1 pr-2">
-            <label className="font-bold text-sm">Password</label>
-            <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-col gap-1 bg-gray-100 p-1 pr-2 ">
+            <label className="font-bold text-gray-700 text-sm">Password</label>
+            <div className="flex flex-row justify-between items-end">
               <input
-                className="font-['montserrat'] text-xs p-1 w-60"
+                className="font-['montserrat'] text-xs w-60 focus:outline-none"
                 type="text"
                 placeholder="Enter atleast 8+ characters"
               />
@@ -32,7 +32,7 @@ function SignIn() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="size-3"
+                className="size-3 cursor-pointer"
               >
                 <path
                   strokeLinecap="round"
@@ -41,6 +41,17 @@ function SignIn() {
                 />
               </svg>
             </div>
+          </div>
+          <div className="flex flex-row gap-2 ">
+            <input className="cursor-pointer" type="checkbox" />
+            <p className="font-['montserrat'] text-xs">Remember me</p>
+          </div>
+          <button className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10">
+            Sign in
+          </button>
+          <div className="text-xs flex flex-row gap-1 justify-center pt-2">
+            <p>New to Demlix?</p>
+            <button className="underline cursor-pointer">Signup now</button>
           </div>
         </form>
       </div>
