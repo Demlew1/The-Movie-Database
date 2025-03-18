@@ -2,7 +2,7 @@ import SignUpForm from "./SignUpForm";
 function SignUp() {
   return (
     <div className="bg-gray-200 h-screen grid grid-cols-1 place-items-center">
-      <div className="bg-gray-50 flex flex-row  gap-12 items-start p-8">
+      <div className="bg-gray-50 flex flex-row w-170  gap-12 items-start p-8">
         <div className="bg-gray-600 text-gray-300 flex items-center justify-center  size-36 rounded-full text-center text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
