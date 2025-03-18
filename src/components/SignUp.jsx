@@ -1,42 +1,16 @@
-const signUpForm = [
-  {
-    label: "Full Name",
-    placeHolder: "Your Full Name",
-    type: "text",
-  },
-  {
-    label: "Email",
-    placeHolder: "example@gmail.com",
-    type: "email",
-  },
-  {
-    label: "Phone number",
-    placeHolder: "Your Phone Number",
-    type: "number",
-  },
-  {
-    label: "Password",
-    placeHolder: "Enter atleast 8+ characters",
-    type: "password",
-  },
-  {
-    label: "Location",
-    placeHolder: "-Select Your Country-",
-    type: "text",
-  },
-];
+import SignUpForm from "./SignUpForm";
 function SignUp() {
   return (
-    <div className="bg-gray-100 h-screen">
-      <div className="bg-gray-50">
-        <div className="bg-gray-600 text-gray-300 flex items-center justify-center  size-18 rounded-full text-center text-xl">
+    <div className="bg-gray-200 h-screen grid grid-cols-1 place-items-center">
+      <div className="bg-gray-50 flex flex-row  gap-12 items-start p-8">
+        <div className="bg-gray-600 text-gray-300 flex items-center justify-center  size-36 rounded-full text-center text-xl">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="size-8"
+            className="size-14"
           >
             <path
               strokeLinecap="round"
@@ -45,7 +19,7 @@ function SignUp() {
             />
           </svg>
         </div>
-        {signUpForm}
+        <SignUpForm />
       </div>
     </div>
   );

@@ -2,6 +2,6 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 function App() {
   return <SignUp />;
-  // <SignIn />;
+  // return <SignIn />;
 }
 export default App;
