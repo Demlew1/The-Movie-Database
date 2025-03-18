@@ -6,7 +6,7 @@ import marvel from "../assets/images/marvel.svg";
 
 function Logos() {
   return (
-    <div className="flex flex-row gap-12 justify-center bg-gray-50">
+    <div className="flex flex-row gap-12 justify-center">
       <img className="w-30" src={hbo} alt="hbo-logo" />
       <img className="w-30" src={marvel} alt="marvel-logo" />
       <img className="w-30" src={netflix} alt="netflix-logo" />
