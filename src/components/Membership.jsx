@@ -1,6 +1,6 @@
 function Membership() {
   return (
-    <div className="bg-gray-100 pt-4 text-center">
+    <div className="bg-gray-100 pt-12 text-center">
       <div className="font-['Ubuntu']">
         <p className="font-bold text-3xl text-center">Demlix Membership</p>
         <p className="font-['Rubik'] pt-4 font-light">
