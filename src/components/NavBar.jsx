@@ -7,9 +7,15 @@ function NavBar() {
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
       </button>
       <div className="font-['Montserrat'] flex flex-row gap-4 text-gray-300 text-xs">
-        <button className="cursor-pointer ">Home</button>
-        <button className="cursor-pointer ">Movies</button>
-        <button className="cursor-pointer ">WatchList</button>
+        <button className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 ">
+          Home
+        </button>
+        <button className="cursor-pointer hover:text-gray-500 transition delay-25 ">
+          Movies
+        </button>
+        <button className="cursor-pointer  hover:text-gray-500 transition delay-25">
+          WatchList
+        </button>
       </div>
       <div className="bg-gray-500 size-10 rounded-full flex items-center justify-center">
         <svg
