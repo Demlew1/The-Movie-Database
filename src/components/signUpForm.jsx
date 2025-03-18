@@ -51,6 +51,12 @@ function SignUpForm() {
           className="border-1 p-2 text-xs border-gray-400 w-100 focus:outline-none"
         />
       </div>
+      <button
+        className="text-center bg-gray-600 text-gray-100 text-xs w-24 self-end p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 mt-2"
+        type="submit"
+      >
+        Sign up
+      </button>
     </form>
   );
 }

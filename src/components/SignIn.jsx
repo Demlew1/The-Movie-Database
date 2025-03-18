@@ -46,7 +46,10 @@ function SignIn() {
             <input className="cursor-pointer" type="checkbox" />
             <p className="font-['montserrat'] text-xs">Remember me</p>
           </div>
-          <button className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10">
+          <button
+            type="submit"
+            className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10"
+          >
             Sign in
           </button>
           <div className="text-xs flex flex-row gap-1 justify-center pt-2">
