@@ -24,7 +24,7 @@ function NavBar() {
           viewBox="0 0 24 24"
           stroke-width="1.5"
           stroke="currentColor"
-          class="size-5 text-white"
+          className="size-5 text-white"
         >
           <path
             stroke-linecap="round"

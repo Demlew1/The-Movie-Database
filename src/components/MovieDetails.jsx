@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+import MovieData from "./MovieData";
 function MovieDetails() {
   return (
     <div className="bg-gray-800 h-screen">
@@ -43,14 +44,14 @@ function MovieDetails() {
             placeholder="Search..."
             className="bg-gray-100 border-1 font-['Rubik'] text-xs p-1 w-40 focus:outline-none text-gray-500"
           />
-          <button className="bg-gray-700 p-1 cursor-pointer">
+          <button className="bg-gray-700 p-1.5 cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="size-4 text-gray-300"
+              className="size-4 text-gray-300"
             >
               <path
                 stroke-linecap="round"
@@ -61,6 +62,7 @@ function MovieDetails() {
           </button>
         </div>
       </div>
+      <MovieData />
     </div>
   );
 }
