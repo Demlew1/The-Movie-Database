@@ -10,16 +10,29 @@ async function fetchData() {
   return response.json();
 }
 function WatchList() {
-  const { data } = useQuery({
-    queryKey: "watchList",
+  const { data, isError, isLoading, error } = useQuery({
+    queryKey: ["watchList"],
     queryFn: fetchData,
   });
+  if (isLoading)
+    return (
+      <p className="text-center text-white font-mono h-screen">Loading...</p>
+    );
+  if (isError)
+    return (
+      <p className="text-red-500 text-center font-mono h-screen">
+        {error.message}
+      </p>
+    );
   return (
     <div className="bg-gray-800 h-screen p-8 overflow-y-scroll">
       <NavBar />
       <div className="bg-gray-600 p-12 rounded-md m-8 flex flex-col gap-6">
         {data.Search.map((data) => (
-          <div className="font-['Montserrat'] bg-gray-500 p-1 px- flex flex-row gap-36 items-center rounded-sm pr-4 cursor-pointer transition delay-5 hover:bg-gray-700">
+          <div
+            key={data.imdbID}
+            className="font-['Montserrat'] bg-gray-500 p-1 px- flex flex-row gap-36 items-center rounded-sm pr-4 cursor-pointer transition delay-5 hover:bg-gray-700"
+          >
             <div className="flex flex-row gap-4 items-center">
               <img className="w-48 h-24" src={data.Poster} />
               <div>
@@ -39,9 +52,9 @@ function WatchList() {
               <img className="size-5 " src={star} alt="star-image" />
               <img className="size-5 " src={star} alt="star-image" />
             </div>
-            <buton className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600">
+            <button className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600">
               Remove
-            </buton>
+            </button>
           </div>
         ))}
       </div>

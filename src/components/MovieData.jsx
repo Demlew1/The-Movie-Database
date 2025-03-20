@@ -28,7 +28,10 @@ function MovieData() {
     <div>
       <div className="flex flex-row flex-wrap gap-4 justify-center  pt-8">
         {data.Search.map((data) => (
-          <div className="bg-gray-300 p-2 font-['Montserrat'] shadow-xs flex flex-col">
+          <div
+            key={data.imdbID}
+            className="bg-gray-300 p-2 font-['Montserrat'] shadow-xs flex flex-col"
+          >
             <img className="size-60" src={data.Poster} alt="Movie poster" />
             <p className="font-bold text-md pt-8 ">{data.Title}</p>
             <p className="text-xs w-60 pt-2">
