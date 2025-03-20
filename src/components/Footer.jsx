@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <div className="pt-10 flex flex-col gap-2 items-center justify-center pb-8 ">
+    <div className="pt-10 flex flex-col gap-2 items-center justify-center pb-8 bg-white">
       <div className="flex flex-row gap-4 pb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
