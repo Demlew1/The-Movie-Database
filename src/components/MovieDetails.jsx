@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import MovieData from "./MovieData";
 function MovieDetails() {
   return (
-    <div className="bg-gray-800 h-screen">
+    <div className="bg-gray-800 ">
       <div className="px-8 pt-8   ">
         <NavBar />
       </div>
