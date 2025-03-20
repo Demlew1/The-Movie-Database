@@ -1,21 +1,31 @@
 import playLogo from "../assets/images/play-logo.svg";
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className="flex flex-row justify-between items-center px-8">
-      <button className=" flex flex-row items-center gap-1 cursor-pointer">
+      <Link to="/" className=" flex flex-row items-center gap-1 cursor-pointer">
         <img className="size-12" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
-      </button>
+      </Link>
       <div className="font-['Montserrat'] flex flex-row gap-4 text-gray-300 text-xs">
-        <button className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 ">
+        <Link
+          to="/"
+          className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 "
+        >
           Home
-        </button>
-        <button className="cursor-pointer hover:text-gray-500 transition delay-25 ">
+        </Link>
+        <Link
+          to="/movies"
+          className="cursor-pointer hover:text-gray-500 transition delay-25 "
+        >
           Movies
-        </button>
-        <button className="cursor-pointer  hover:text-gray-500 transition delay-25">
+        </Link>
+        <Link
+          to="/watchlist"
+          className="cursor-pointer  hover:text-gray-500 transition delay-25"
+        >
           WatchList
-        </button>
+        </Link>
       </div>
       <div className="bg-gray-500 size-10 rounded-full flex items-center justify-center">
         <svg

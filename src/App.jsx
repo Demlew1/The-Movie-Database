@@ -2,20 +2,22 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import HomePage from "./components/HomePage";
 import MovieDetails from "./components/MovieDetails";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import WatchList from "./components/WatchList";
-const queryClient = new QueryClient();
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      {/* <MovieDetails /> */}
-      <HomePage />
-      {/* <WatchList /> */}
-    </QueryClientProvider>
+    <div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/movies" element={<MovieDetails />} />
+          <Route path="/watchList" element={<WatchList />} />
+        </Routes>
+      </Router>
+    </div>
   );
-  // return <HomePage />;
-  //  <SignUp />;
-  // return <SignIn />;
 }
 export default App;
