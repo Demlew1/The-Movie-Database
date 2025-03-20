@@ -10,8 +10,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* <MovieDetails /> */}
-      {/* <HomePage /> */}
-      <WatchList />
+      <HomePage />
+      {/* <WatchList /> */}
     </QueryClientProvider>
   );
   // return <HomePage />;
