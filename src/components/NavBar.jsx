@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className="flex flex-row justify-between items-center px-8">
-      <Link to="/" className=" flex flex-row items-center gap-1 cursor-pointer">
+      <div className=" flex flex-row items-center gap-1 cursor-pointer">
         <img className="size-12" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
-      </Link>
+      </div>
       <div className="font-['Montserrat'] flex flex-row gap-4 text-gray-300 text-xs">
         <Link
-          to="/"
+          to="/Home"
           className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 "
         >
           Home

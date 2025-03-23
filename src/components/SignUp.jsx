@@ -1,4 +1,5 @@
 import SignUpForm from "./SignUpForm";
+
 function SignUp() {
   return (
     <div className="bg-gray-200 h-screen grid grid-cols-1 place-items-center">

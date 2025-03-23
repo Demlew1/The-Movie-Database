@@ -1,5 +1,6 @@
 import NavBar from "./NavBar";
 import MovieData from "./MovieData";
+
 function MovieDetails() {
   return (
     <div className="bg-gray-800 ">

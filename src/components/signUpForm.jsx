@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const signUpForm = [
   {
     label: "Full Name",
@@ -55,12 +56,13 @@ function SignUpForm() {
         <button className="font-['montserrat'] text-xs text-gray-700 cursor-pointer hover:text-gray-900 transition delay-25">
           Cancel
         </button>
-        <button
+        <Link
+          to="/Home"
           className="text-center bg-gray-600 text-gray-100 text-xs w-24 h-8 self-end p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 "
           type="submit"
         >
           Sign up
-        </button>
+        </Link>
       </div>
     </form>
   );
