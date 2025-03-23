@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
+import NavBar from "./NavBar";
+import Footer from "./Footer";
 const apiKey = "387501be";
 async function fetchMovieDetails(id) {
   const response = await fetch(
@@ -26,7 +28,22 @@ function MovieStatus() {
     );
   console.log(data);
   return (
-    <div className="grid grid-cols-1 place-items-center text-black">demtse</div>
+    <div>
+      <div className="px-8 pt-8 bg-gray-800 h-screen flex flex-col gap-8">
+        <NavBar />
+        <div className="bg-gray-600 w-200 h-100 flex flex-row p-4 self-center">
+          <div className="self-center">
+            <img
+              className="size-70 rounded-sm"
+              src={data.Poster}
+              alt="movie's poster"
+            />
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
   );
 }
 
