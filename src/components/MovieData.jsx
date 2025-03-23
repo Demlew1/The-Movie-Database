@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import Footer from "./Footer";
+import { useNavigate } from "react-router-dom";
 const apiKey = "387501be";
 async function fetchMovie() {
   const response = await fetch(
@@ -9,6 +10,7 @@ async function fetchMovie() {
   return response.json();
 }
 function MovieData() {
+  const navigate = useNavigate();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["movies"],
     queryFn: fetchMovie,
@@ -29,6 +31,7 @@ function MovieData() {
       <div className="flex flex-row flex-wrap gap-4 justify-center  pt-8">
         {data.Search.map((data) => (
           <div
+            onClick={() => navigate(`/movies/${data.imdbID}`)}
             key={data.imdbID}
             className="bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col"
           >

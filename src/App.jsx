@@ -2,6 +2,7 @@ import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import HomePage from "./components/HomePage";
 import MovieDetails from "./components/MovieDetails";
+import MovieStatus from "./components/MovieStatus";
 
 import WatchList from "./components/WatchList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
