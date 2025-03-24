@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import imdb from "../assets/images/imdb.svg";
 const apiKey = "387501be";
 async function fetchMovieDetails(id) {
   const response = await fetch(
@@ -29,19 +30,52 @@ function MovieStatus() {
   console.log(data);
   return (
     <div>
-      <div className="px-8 pt-8 bg-gray-800 h-screen flex flex-col gap-8">
+      <div className="px-8 pt-8 h-screen  bg-gray-800 flex flex-col gap-8">
         <NavBar />
-        <div className="bg-gray-600 w-200 h-100 flex flex-row p-4 self-center">
-          <div className="self-center">
-            <img
-              className="size-70 rounded-sm"
-              src={data.Poster}
-              alt="movie's poster"
-            />
+        <div className="bg-gray-600 w-250 flex flex-row gap-4 p-4 self-center">
+          <img
+            className="rounded-sm size-80 self-center "
+            src={data.Poster}
+            alt="movie's poster"
+          />
+          <div className="text-gray-100 font-['Montserrat'] p-2">
+            <p className="text-2xl font-bold text-center mb-4">{data.Title}</p>
+            <p className="text-xs text-justify">
+              <span className="font-bold text-amber-600">Plot: </span>
+              {data.Plot}
+            </p>
+            <p className="text-xs mt-8">
+              {" "}
+              <span className="font-bold text-amber-600">Director: </span>
+              {data.Director}
+            </p>
+            <p className=" text-xs">
+              <span className="font-bold text-amber-600">Actors: </span>
+              {data.Actors}
+            </p>
+            <p className=" text-xs">
+              <span className="font-bold text-amber-600">Genre: </span>
+              {data.Genre}
+            </p>
+            <p className=" text-xs">
+              <span className="font-bold text-amber-600">Released: </span>
+              {data.Released}
+            </p>
+            <div className="flex flex-row justify-between mt-4">
+              <div className="flex flex-row items-center gap-2">
+                <img className="size-10 " src={imdb} alt="imdb-image" />
+                <p className="text-sm">{data.imdbRating}</p>
+              </div>
+              <p className="text-[10px] border-1 p-1 rounded-full w-18 flex flex-row items-center justify-center">
+                {data.Runtime}
+              </p>
+              <button className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-800 ">
+                Add to watchlist
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
