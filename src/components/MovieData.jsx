@@ -1,19 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
-const apiKey = "387501be";
-async function fetchMovie() {
-  const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${apiKey}&s=movie`
-  );
-  if (!response.ok) throw new Error("Failed to fetch the data");
-  return response.json();
-}
+import { getMovie } from "../api/api";
 function MovieData() {
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["movies"],
-    queryFn: fetchMovie,
+    queryFn: getMovie,
   });
   if (isLoading)
     return (
@@ -31,21 +24,18 @@ function MovieData() {
       <div className="flex flex-row flex-wrap gap-4 justify-center  pt-8">
         {data.Search.map((data) => (
           <div
-            onClick={() => navigate(`/movies/${data.imdbID}`)}
             key={data.imdbID}
             className="bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col"
           >
             <img className="size-60" src={data.Poster} alt="Movie poster" />
-            <p className="font-bold text-md pt-8 ">{data.Title}</p>
-            <p className="text-xs w-60 pt-2">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            </p>
-            <div className="flex flex-row gap-18 pt-4">
-              <p className="text-[10px] border-1 p-1 w-16 rounded-full flex flex-row items-center justify-center">
-                49 mins
-              </p>
-              <button className=" cursor-pointer font-['Rubik'] text-xs text-gray-100 p-2 bg-gray-900 rounded-sm hover:bg-gray-800">
-                Add to watchlist
+            <p className="font-bold text-md pt-3 ">{data.Title}</p>
+            <p className="text-xs mt-2">{data.Year}</p>
+            <div className="pt-4 self-center">
+              <button
+                onClick={() => navigate(`/movies/${data.imdbID}`)}
+                className=" cursor-pointer font-['Montserrat'] text-xs w-60 text-gray-100 p-2 bg-gray-900 rounded-sm hover:bg-gray-950 transition delay-10"
+              >
+                View details
               </button>
             </div>
           </div>

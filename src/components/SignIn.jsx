@@ -2,28 +2,36 @@ import { Link } from "react-router-dom";
 function SignIn() {
   return (
     <div className="bg-gray-100 h-screen font-['Ubuntu'] flex flex-col gap-8">
-      <div className="text-center pt-15">
-        <p className="font-['Ubuntu'] font-bold text-2xl">
+      <div className="text-center pt-12 sm:pt-8  ">
+        <p className="font-['Ubuntu'] font-bold text-2xl sm:text-lg md:text-2xl">
           Unlock a world of endless entertainment
         </p>
-        <p className="text-sm">Login to Discover ,Stream, and Enjoy!</p>
+        <p className="text-sm sm:text-xs md:text-sm">
+          Login to Discover ,Stream, and Enjoy!
+        </p>
       </div>
-      <div className="bg-white self-center p-6 w-100 flex flex-col">
-        <p className="font-bold text-2xl text-center pb-6">Sign in</p>
-        <form className="flex flex-col gap-4">
+      <div className="bg-white self-center p-4 w-100 flex flex-col sm:w-90 md:w-100 ">
+        <p className="font-bold text-2xl text-center pb-6 sm:text-xl sm:pb-4 md:pb-6 md:text-2xl">
+          Sign in
+        </p>
+        <form className="flex flex-col gap-4 sm:gap-3 md:gap-4">
           <div className="flex flex-col bg-gray-100 gap-1 p-1 pr-2">
-            <label className="font-bold text-gray-700 text-sm">Email</label>
+            <label className="font-bold text-gray-700 text-sm sm:text-[12px] md:text-sm">
+              Email
+            </label>
             <input
-              className="font-['montserrat'] text-xs  focus:outline-none"
+              className="font-['montserrat'] text-xs focus:outline-none sm:text-[10px] md:text-xs"
               type="text"
               placeholder="example.email@gmail.com"
             />
           </div>
           <div className="flex flex-col gap-1 bg-gray-100 p-1 pr-2 ">
-            <label className="font-bold text-gray-700 text-sm">Password</label>
+            <label className="font-bold text-gray-700 text-sm sm:text-[12px] md:text-sm">
+              Password
+            </label>
             <div className="flex flex-row justify-between items-end">
               <input
-                className="font-['montserrat'] text-xs w-60 focus:outline-none"
+                className="font-['montserrat'] text-xs w-60 focus:outline-none sm:text-[10px] md:text-xs"
                 type="text"
                 placeholder="Enter atleast 8+ characters"
               />
@@ -43,14 +51,16 @@ function SignIn() {
               </svg>
             </div>
           </div>
-          <div className="flex flex-row gap-2 ">
-            <input className="cursor-pointer" type="checkbox" />
-            <p className="font-['montserrat'] text-xs">Remember me</p>
+          <div className="flex flex-row gap-2 items-center">
+            <input className="cursor-pointer sm:size-3" type="checkbox" />
+            <p className="font-['montserrat'] text-xs sm:text-[12px]">
+              Remember me
+            </p>
           </div>
           <Link
             to="/Home"
             type="submit"
-            className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10"
+            className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 sm:p-1 md:p-2"
           >
             Sign in
           </Link>

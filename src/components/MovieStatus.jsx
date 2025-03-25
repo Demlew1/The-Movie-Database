@@ -3,17 +3,15 @@ import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import imdb from "../assets/images/imdb.svg";
-const apiKey = "387501be";
-async function fetchMovieDetails(id) {
-  const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}&plot=full`
-  );
-  if (!response.ok) throw new Error("Error fetching the movie data");
-  return response.json();
-}
+import { fetchMovieDetails } from "../api/api";
 function MovieStatus() {
   const { id } = useParams();
-  const { data, isLoading, isError, error } = useQuery({
+  const {
+    data: movie,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     queryKey: ["movieData", id],
     queryFn: () => fetchMovieDetails(id),
   });
@@ -27,49 +25,49 @@ function MovieStatus() {
         {error.message}
       </p>
     );
-  console.log(data);
+  console.log(movie);
   return (
     <div>
       <div className="px-8 pt-8 h-screen  bg-gray-800 flex flex-col gap-8">
         <NavBar />
         <div className="bg-gray-600 w-250 flex flex-row gap-4 p-4 self-center">
           <img
-            className="rounded-sm size-80 self-center "
-            src={data.Poster}
+            className="rounded-sm size-90 self-center "
+            src={movie.Poster}
             alt="movie's poster"
           />
-          <div className="text-gray-100 font-['Montserrat'] p-2">
-            <p className="text-2xl font-bold text-center mb-4">{data.Title}</p>
+          <div className="text-gray-100 font-['Montserrat'] flex flex-col gap-1 p-2">
+            <p className="text-2xl font-bold text-center mb-4">{movie.Title}</p>
             <p className="text-xs text-justify">
               <span className="font-bold text-amber-600">Plot: </span>
-              {data.Plot}
+              {movie.Plot}
             </p>
             <p className="text-xs mt-8">
               {" "}
               <span className="font-bold text-amber-600">Director: </span>
-              {data.Director}
+              {movie.Director}
             </p>
             <p className=" text-xs">
               <span className="font-bold text-amber-600">Actors: </span>
-              {data.Actors}
+              {movie.Actors}
             </p>
             <p className=" text-xs">
               <span className="font-bold text-amber-600">Genre: </span>
-              {data.Genre}
+              {movie.Genre}
             </p>
             <p className=" text-xs">
               <span className="font-bold text-amber-600">Released: </span>
-              {data.Released}
+              {movie.Released}
             </p>
-            <div className="flex flex-row justify-between mt-4">
+            <div className="flex flex-row justify-between mt-10">
               <div className="flex flex-row items-center gap-2">
                 <img className="size-10 " src={imdb} alt="imdb-image" />
-                <p className="text-sm">{data.imdbRating}</p>
+                <p className="text-sm">{movie.imdbRating}</p>
               </div>
               <p className="text-[10px] border-1 p-1 rounded-full w-18 flex flex-row items-center justify-center">
-                {data.Runtime}
+                {movie.Runtime}
               </p>
-              <button className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-800 ">
+              <button className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-950 transition delay-10">
                 Add to watchlist
               </button>
             </div>
