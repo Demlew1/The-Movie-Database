@@ -8,7 +8,7 @@ function WatchList() {
     <div className="bg-gray-800 h-screen p-8 overflow-y-scroll">
       <NavBar />
       <div className="bg-gray-600 p-12 rounded-md m-8 flex flex-col gap-6">
-        {watchList?.map((movie) => (
+        {watchList.map((movie) => (
           <div
             key={movie.imdbID}
             className="font-['Montserrat'] bg-gray-500 p-1 px- flex flex-row gap-36 items-center rounded-sm pr-4 cursor-pointer transition delay-5 hover:bg-gray-700"

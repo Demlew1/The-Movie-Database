@@ -1,9 +1,13 @@
 import { create } from "zustand";
 const useListStore = create((set) => ({
   watchList: [],
-  addToWatchList: (newList) => {
+  addToWatchList: (newMovie) => {
     set((state) => ({
-      watchList: [...state.watchList, newList],
+      watchList: state.watchList.some(
+        (movie) => movie.imdbID === newMovie.imdbID
+      )
+        ? state.watchList
+        : [...state.watchList, newMovie],
     }));
   },
 }));

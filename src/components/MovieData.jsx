@@ -34,8 +34,8 @@ function MovieData() {
             className="bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col"
           >
             <img className="size-60" src={movie.Poster} alt="Movie poster" />
-            <p className="font-bold text-md pt-3 ">{movie.Title}</p>
-            <p className="text-xs mt-2">{movie.Year}</p>
+            <p className="font-bold text-md pt-3 pl-1">{movie.Title}</p>
+            <p className="text-xs mt-2 pl-1 ">{movie.Year}</p>
             <div className="pt-4 self-center">
               <button
                 onClick={() => navigate(`/movies/${movie.imdbID}`)}
