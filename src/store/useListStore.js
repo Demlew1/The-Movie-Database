@@ -10,5 +10,10 @@ const useListStore = create((set) => ({
         : [...state.watchList, newMovie],
     }));
   },
+  removeFromList: (id) => {
+    set((state) => ({
+      watchList: state.watchList.filter((movie) => movie.imdbID !== id),
+    }));
+  },
 }));
 export default useListStore;

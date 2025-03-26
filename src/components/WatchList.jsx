@@ -3,6 +3,7 @@ import star from "../assets/images/star.svg";
 import useListStore from "../store/useListStore";
 function WatchList() {
   const watchList = useListStore((state) => state.watchList);
+  const removeFromList = useListStore((state) => state.removeFromList);
   console.log(watchList);
   return (
     <div className="bg-gray-800 h-screen p-8 overflow-y-scroll">
@@ -32,7 +33,10 @@ function WatchList() {
               <img className="size-5 " src={star} alt="star-image" />
               <img className="size-5 " src={star} alt="star-image" />
             </div>
-            <button className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600">
+            <button
+              onClick={() => removeFromList(movie.imdbID)}
+              className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600"
+            >
               Remove
             </button>
           </div>
