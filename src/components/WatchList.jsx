@@ -47,7 +47,7 @@ function WatchList() {
         </div>
       ) : (
         <p className="font-mono text-amber-200 mt-40 ml-16 flex flex-row justify-center">
-          Your watchlist is empty – let's find something amazing!
+          Your watchlist is empty
         </p>
       )}
     </div>
