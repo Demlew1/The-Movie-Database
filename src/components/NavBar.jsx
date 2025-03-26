@@ -1,8 +1,10 @@
 import playLogo from "../assets/images/play-logo.svg";
 import { Link } from "react-router-dom";
+import useListStore from "../store/useListStore";
 function NavBar() {
+  const watchList = useListStore((state) => state.watchList);
   return (
-    <div className="flex flex-row justify-between items-center px-8">
+    <div className="flex flex-row justify-between items-center px-8 relative">
       <div className=" flex flex-row items-center gap-1 cursor-pointer">
         <img className="size-12" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
@@ -43,6 +45,9 @@ function NavBar() {
           />
         </svg>
       </div>
+      <p className="absolute top-2 right-117 text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
+        {watchList.length}
+      </p>
     </div>
   );
 }
