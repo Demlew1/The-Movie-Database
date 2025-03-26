@@ -4,7 +4,9 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import imdb from "../assets/images/imdb.svg";
 import { fetchMovieDetails } from "../api/api";
+import useListStore from "../store/useListStore";
 function MovieStatus() {
+  const addToWatchList = useListStore((state) => state.addToWatchList);
   const { id } = useParams();
   const {
     data: movie,
@@ -67,7 +69,10 @@ function MovieStatus() {
               <p className="text-[10px] border-1 p-1 rounded-full w-18 flex flex-row items-center justify-center">
                 {movie.Runtime}
               </p>
-              <button className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-950 transition delay-10">
+              <button
+                onClick={() => addToWatchList(movie)}
+                className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-950 transition delay-10"
+              >
                 Add to watchlist
               </button>
             </div>
