@@ -1,7 +1,7 @@
 const apiKey = "387501be";
-export async function getMovie() {
+export async function getMovie(page = 1) {
   const response = await fetch(
-    `http://www.omdbapi.com/?apikey=${apiKey}&s=movie`
+    `http://www.omdbapi.com/?apikey=${apiKey}&s=movie&page=${page}`
   );
   if (!response.ok) throw new Error("Failed to fetch the data");
   return response.json();
