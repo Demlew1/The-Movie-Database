@@ -42,41 +42,46 @@ function MovieData() {
     );
   console.log(movie);
   return (
-    <div>
-      <div className="flex flex-row flex-wrap gap-4 justify-center  pt-8">
+    <div className="flex flex-col">
+      <div className="flex flex-row flex-wrap gap-4 justify-center ">
         {filteredMovies.Search.map((movie) => (
           <div
             key={movie.imdbID}
-            className="bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col"
+            className=" bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col justify-between gap-1"
           >
-            <img className="size-60" src={movie.Poster} alt="Movie poster" />
-            <p className="font-bold text-md pt-3 pl-1">{movie.Title}</p>
-            <p className="text-xs mt-2 pl-1 ">{movie.Year}</p>
-            <div className="pt-4 self-center">
+            <div>
+              <img className="size-60" src={movie.Poster} alt="Movie poster" />
+              <p className="font-bold text-md pt-3 pl-1 w-60">{movie.Title}</p>
+              <p className="text-xs mt-2 pl-1 ">{movie.Year}</p>
+            </div>{" "}
+            cursor-pointer
+            <div className="mt-4 ">
               <button
                 onClick={() => navigate(`/movies/${movie.imdbID}`)}
-                className=" cursor-pointer font-['Montserrat'] text-xs w-60 text-gray-100 p-2 bg-gray-900 rounded-sm hover:bg-gray-950 transition delay-10"
+                className="cursor-pointer font-['Montserrat'] text-xs w-60 text-gray-100 p-2 bg-gray-900 rounded-sm hover:bg-gray-950 transition delay-10"
               >
                 View details
               </button>
             </div>
           </div>
         ))}
-        <div>
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          >
-            previous
-          </button>
-          <p>page:{currentPage}</p>
-          <button
-            disabled={!movie.Search || movie.Search.length < 10}
-            onClick={() => setCurrentPage((prev) => prev + 1)}
-          >
-            Next
-          </button>
-        </div>
+      </div>
+      <div className="flex flex-row gap-8 justify-center items-center mt-10 font-['Montserrat'] text-gray-800 text-xs font-bold ">
+        <button
+          className="bg-gray-200 p-2 rounded-md hover:bg-gray-300 cursor-pointer"
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+        >
+          previous
+        </button>
+        <p className="text-amber-400">{currentPage}</p>
+        <button
+          className="bg-gray-200 p-2 rounded-md w-14 hover:bg-gray-400  cursor-pointer"
+          disabled={!movie.Search || movie.Search.length < 10}
+          onClick={() => setCurrentPage((prev) => prev + 1)}
+        >
+          Next
+        </button>
       </div>
       <div className="mt-8">
         <Footer />
