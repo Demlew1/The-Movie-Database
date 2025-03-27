@@ -3,7 +3,9 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { getMovie } from "../api/api";
 import useSearchStore from "../store/useSearchStore";
+import { useState } from "react";
 function MovieData() {
+  const [currentPage, setCurrentPage] = useState(1);
   const searchText = useSearchStore((state) => state.searchText);
   const navigate = useNavigate();
   const {
@@ -12,9 +14,11 @@ function MovieData() {
     isError,
     error,
   } = useQuery({
-    queryKey: ["movies"],
-    queryFn: getMovie,
+    queryKey: ["movies", currentPage],
+
+    queryFn: () => getMovie(currentPage),
     staleTime: 2,
+    keepPreviousData: true,
   });
   console.log("movie", movie);
   const filteredMovies =
@@ -58,6 +62,21 @@ function MovieData() {
             </div>
           </div>
         ))}
+        <div>
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          >
+            previous
+          </button>
+          <p>page:{currentPage}</p>
+          <button
+            disabled={!movie.Search || movie.Search.length < 10}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </div>
       </div>
       <div className="mt-8">
         <Footer />
