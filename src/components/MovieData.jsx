@@ -2,7 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 import { getMovie } from "../api/api";
+import useSearchStore from "../store/useSearchStore";
 function MovieData() {
+  const searchText = useSearchStore((state) => state.searchText);
   const navigate = useNavigate();
   const {
     data: movie,
@@ -12,8 +14,18 @@ function MovieData() {
   } = useQuery({
     queryKey: ["movies"],
     queryFn: getMovie,
+    staleTime: 2,
   });
-
+  console.log("movie", movie);
+  const filteredMovies =
+    searchText.length === 0
+      ? movie
+      : {
+          ...movie,
+          Search: movie.Search.filter((movie) =>
+            movie.Title.toLowerCase().includes(searchText.toLowerCase())
+          ),
+        };
   if (isLoading)
     return (
       <p className="text-center text-white font-mono h-screen">Loading...</p>
@@ -28,7 +40,7 @@ function MovieData() {
   return (
     <div>
       <div className="flex flex-row flex-wrap gap-4 justify-center  pt-8">
-        {movie.Search.map((movie) => (
+        {filteredMovies.Search.map((movie) => (
           <div
             key={movie.imdbID}
             className="bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col"

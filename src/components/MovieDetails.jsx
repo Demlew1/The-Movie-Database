@@ -2,6 +2,7 @@ import NavBar from "./NavBar";
 import MovieData from "./MovieData";
 import useSearchStore from "../store/useSearchStore";
 function MovieDetails() {
+  const { searchText, setSearchText } = useSearchStore();
   return (
     <div className="bg-gray-800 ">
       <div className="px-8 pt-8 ">
@@ -38,6 +39,8 @@ function MovieDetails() {
         <div className="flex flex-row items-center ">
           <input
             type="text"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
             placeholder="Search..."
             className="bg-gray-100 border-1 font-['Rubik'] text-xs p-1 w-40 focus:outline-none text-gray-500"
           />
