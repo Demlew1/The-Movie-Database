@@ -1,4 +1,19 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+const validationSchema = Yup.object({
+  fullName: Yup.string().required("Name is required"),
+  email: Yup.string()
+    .required("Email is required")
+    .email("Invalid email address"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters"),
+  phone: Yup.string().required("Phone Number is required"),
+  location: Yup.string().required("Your Location is required"),
+  about: Yup.string().required("Tell us about yourself"),
+}).required();
 const signUpForm = [
   {
     label: "Full Name",
