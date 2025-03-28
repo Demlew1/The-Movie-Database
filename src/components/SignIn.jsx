@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   return (
     <div className="bg-gray-100 h-screen font-['Ubuntu'] flex flex-col gap-8">
       <div className="text-center pt-12 sm:pt-8  ">
@@ -20,6 +23,8 @@ function SignIn() {
               Email
             </label>
             <input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="font-['montserrat'] text-xs focus:outline-none sm:text-[10px] md:text-xs"
               type="text"
               placeholder="example.email@gmail.com"
@@ -31,6 +36,8 @@ function SignIn() {
             </label>
             <div className="flex flex-row justify-between items-end">
               <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="font-['montserrat'] text-xs w-60 focus:outline-none sm:text-[10px] md:text-xs"
                 type="text"
                 placeholder="Enter atleast 8+ characters"
