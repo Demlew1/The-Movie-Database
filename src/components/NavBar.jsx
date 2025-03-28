@@ -45,9 +45,11 @@ function NavBar() {
           />
         </svg>
       </div>
-      <p className="absolute top-2 right-117 text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
-        {watchList.length}
-      </p>
+      {watchList.length > 0 && (
+        <p className="absolute top-2 right-117 text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
+          {watchList.length}
+        </p>
+      )}
     </div>
   );
 }

@@ -54,7 +54,6 @@ function MovieData() {
               <p className="font-bold text-md pt-3 pl-1 w-60">{movie.Title}</p>
               <p className="text-xs mt-2 pl-1 ">{movie.Year}</p>
             </div>{" "}
-            cursor-pointer
             <div className="mt-4 ">
               <button
                 onClick={() => navigate(`/movies/${movie.imdbID}`)}
