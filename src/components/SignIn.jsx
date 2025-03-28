@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import supabase from "../store/auth";
+import { useState } from "react";
 const validationSchema = Yup.object({
   email: Yup.string()
     .required("Email is required")
@@ -11,6 +13,9 @@ const validationSchema = Yup.object({
     .min(8, "Password must be at least 8 characters"),
 }).required();
 function SignIn() {
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+  const [authError, setAuthError] = useState(null);
   const {
     register,
     handleSubmit,
@@ -23,10 +28,22 @@ function SignIn() {
       password: "",
     },
   });
-  function submit(data) {
-    console.log("data", data);
-    console.log("errors", errors);
-    reset();
+  async function onSubmit(data) {
+    setIsLoading(true);
+    setAuthError(null);
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+      if (error) throw error;
+      navigate("/Home");
+      reset();
+    } catch (error) {
+      setAuthError(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   }
   return (
     <div className="bg-gray-100 h-screen font-['Ubuntu'] flex flex-col gap-8">
@@ -42,8 +59,13 @@ function SignIn() {
         <p className="font-bold text-2xl text-center pb-6 sm:text-xl sm:pb-4 md:pb-6 md:text-2xl">
           Sign in
         </p>
+        {authError && (
+          <div className="mb-4 p-2 text-center bg-red-100 text-red-700 text-sm rounded">
+            {authError}{" "}
+          </div>
+        )}
         <form
-          onSubmit={handleSubmit(submit)}
+          onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-4 sm:gap-3 md:gap-4"
         >
           <div>
@@ -109,10 +131,11 @@ function SignIn() {
             </p>
           </div>
           <button
+            disabled={isLoading}
             type="submit"
             className="text-center bg-gray-600 text-gray-100 text-xs p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 sm:p-1 md:p-2"
           >
-            Sign in
+            {isLoading ? "Signing in" : "Sign in"}
           </button>
           <div className="text-xs flex flex-row gap-1 justify-center pt-2">
             <p>New to Demlix?</p>
