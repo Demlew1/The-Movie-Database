@@ -6,7 +6,7 @@ export async function getMovie(page = 1) {
   if (!response.ok) throw new Error("Failed to fetch the data");
   return response.json();
 }
-export async function fetchMovieDetails(id) {
+export async function getMovieDetails(id) {
   const response = await fetch(
     `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}&plot=full`
   );

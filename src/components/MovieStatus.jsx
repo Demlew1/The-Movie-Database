@@ -15,7 +15,7 @@ function MovieStatus() {
     error,
   } = useQuery({
     queryKey: ["movieData", id],
-    queryFn: () => fetchMovieDetails(id),
+    queryFn: () => getMovieDetails(id),
   });
   if (isLoading)
     return (
