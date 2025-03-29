@@ -13,3 +13,10 @@ export async function getMovieDetails(id) {
   if (!response.ok) throw new Error("Error fetching the movie data");
   return response.json();
 }
+export async function searchMovies(query) {
+  const response = await fetch(
+    `http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`
+  );
+  if (!response.ok) throw new Error("Failed to fetch search results");
+  return response.json();
+}

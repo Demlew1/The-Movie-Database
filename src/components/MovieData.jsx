@@ -1,12 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
-import { getMovie } from "../api/api";
+import { getMovie, searchMovies } from "../api/api";
 import useSearchStore from "../store/useSearchStore";
 import { useState } from "react";
+import { useDebounce } from "use-debounce";
 function MovieData() {
   const [currentPage, setCurrentPage] = useState(1);
   const searchText = useSearchStore((state) => state.searchText);
+  const [debouncedText] = useDebounce(searchText, 500);
   const navigate = useNavigate();
   const {
     data: movie,
@@ -17,22 +19,22 @@ function MovieData() {
     queryKey: ["movies", currentPage],
 
     queryFn: () => getMovie(currentPage),
-    staleTime: 2,
+    staleTime: 10000,
     keepPreviousData: true,
+    enabled: !debouncedText,
   });
-  console.log("movie", movie);
-  const filteredMovies =
-    searchText.length === 0
-      ? movie
-      : {
-          ...movie,
-          Search: movie.Search.filter((movie) =>
-            movie.Title.toLowerCase().includes(searchText.toLowerCase())
-          ),
-        };
-  if (isLoading)
+  const { data: searchResults, isLoading: isSearching } = useQuery({
+    queryKey: ["search", debouncedText],
+    queryFn: () => searchMovies(debouncedText),
+    staleTime: 10000,
+    keepPreviousData: true,
+    enabled: !!debouncedText,
+  });
+
+  const displayMovies = debouncedText ? searchResults : movie;
+  if (isLoading || (isSearching && debouncedText))
     return (
-      <p className="text-center text-white font-mono h-screen">Loading...</p>
+      <p className="text-center h-screen text-white font-mono ">Loading...</p>
     );
   if (isError)
     return (
@@ -40,11 +42,10 @@ function MovieData() {
         {error.message}
       </p>
     );
-  console.log(movie);
   return (
     <div className="flex flex-col">
       <div className="flex flex-row flex-wrap gap-4 justify-center ">
-        {filteredMovies.Search.map((movie) => (
+        {displayMovies.Search.map((movie) => (
           <div
             key={movie.imdbID}
             className=" bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col justify-between gap-1"
@@ -65,23 +66,25 @@ function MovieData() {
           </div>
         ))}
       </div>
-      <div className="flex flex-row gap-8 justify-center items-center mt-10 font-['Montserrat'] text-gray-800 text-xs font-bold ">
-        <button
-          className="bg-gray-200 p-2 rounded-md hover:bg-gray-300 cursor-pointer"
-          disabled={currentPage === 1}
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-        >
-          previous
-        </button>
-        <p className="text-amber-400">{currentPage}</p>
-        <button
-          className="bg-gray-200 p-2 rounded-md w-14 hover:bg-gray-400  cursor-pointer"
-          disabled={!movie.Search || movie.Search.length < 10}
-          onClick={() => setCurrentPage((prev) => prev + 1)}
-        >
-          Next
-        </button>
-      </div>
+      {!debouncedText && (
+        <div className="flex flex-row gap-8 justify-center items-center mt-10 font-['Montserrat'] text-gray-800 text-xs font-bold ">
+          <button
+            className="bg-gray-200 p-2 rounded-md hover:bg-gray-300 cursor-pointer"
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          >
+            previous
+          </button>
+          <p className="text-amber-400">{currentPage}</p>
+          <button
+            className="bg-gray-200 p-2 rounded-md w-14 hover:bg-gray-400  cursor-pointer"
+            disabled={!movie.Search || movie.Search.length < 10}
+            onClick={() => setCurrentPage((prev) => prev + 1)}
+          >
+            Next
+          </button>
+        </div>
+      )}
       <div className="mt-8">
         <Footer />
       </div>
