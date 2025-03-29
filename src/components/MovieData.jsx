@@ -24,7 +24,11 @@ function MovieData() {
     keepPreviousData: true,
     enabled: !debouncedText,
   });
-  const { data: searchResults, isLoading: isSearching } = useQuery({
+  const {
+    data: searchResults,
+    isLoading: isSearching,
+    error: searchError,
+  } = useQuery({
     queryKey: ["search", debouncedText],
     queryFn: () => searchMovies(debouncedText),
     staleTime: 10000,
@@ -32,6 +36,7 @@ function MovieData() {
     enabled: !!debouncedText,
   });
 
+  const noSearchResults = debouncedText && searchResults?.Response === "False";
   const displayMovies = debouncedText ? searchResults : movie;
   if (isLoading || (isSearching && debouncedText))
     return (
@@ -49,10 +54,20 @@ function MovieData() {
         {error.message}
       </p>
     );
+  if (searchError)
+    return (
+      <p className="text-red-500 text-center font-mono h-screen">
+        {searchError.message}
+      </p>
+    );
+
   return (
     <div className="flex flex-col">
+      {noSearchResults && (
+        <p className="font-mono text-gray-100 text-center py-10">{`No movies found for "${debouncedText}"`}</p>
+      )}
       <div className="flex flex-row flex-wrap gap-4 justify-center ">
-        {displayMovies?.Search.map((movie) => (
+        {displayMovies?.Search?.map((movie) => (
           <div
             key={movie.imdbID}
             className=" bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col justify-between gap-1"
@@ -85,7 +100,7 @@ function MovieData() {
           <p className="text-amber-400">{currentPage}</p>
           <button
             className="bg-gray-200 p-2 rounded-md w-14 hover:bg-gray-400  cursor-pointer"
-            disabled={!movie.Search || movie.Search.length < 10}
+            disabled={!movie?.Search || movie?.Search?.length < 10}
             onClick={() => setCurrentPage((prev) => prev + 1)}
           >
             Next
