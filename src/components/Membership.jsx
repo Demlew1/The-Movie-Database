@@ -16,7 +16,7 @@ function Membership() {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              class="size-6"
+              className="size-6"
             >
               <path
                 strokeLinecap="round"
@@ -40,7 +40,7 @@ function Membership() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-4"
+                className="size-4"
               >
                 <path
                   strokeLinecap="round"
@@ -57,7 +57,7 @@ function Membership() {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                class="size-4"
+                className="size-4"
               >
                 <path
                   strokeLinecap="round"

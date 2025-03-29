@@ -5,6 +5,7 @@ import { getMovie, searchMovies } from "../api/api";
 import useSearchStore from "../store/useSearchStore";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
+import MovieSkeleton from "./MovieSkeleton";
 function MovieData() {
   const [currentPage, setCurrentPage] = useState(1);
   const searchText = useSearchStore((state) => state.searchText);
@@ -34,7 +35,13 @@ function MovieData() {
   const displayMovies = debouncedText ? searchResults : movie;
   if (isLoading || (isSearching && debouncedText))
     return (
-      <p className="text-center h-screen text-white font-mono ">Loading...</p>
+      <div className="flex flex-col">
+        <div className="flex flex-row flex-wrap gap-4 justify-center">
+          {[...Array(8)].map((_, index) => (
+            <MovieSkeleton key={`skeleton-${index}`} />
+          ))}
+        </div>
+      </div>
     );
   if (isError)
     return (
@@ -45,7 +52,7 @@ function MovieData() {
   return (
     <div className="flex flex-col">
       <div className="flex flex-row flex-wrap gap-4 justify-center ">
-        {displayMovies.Search.map((movie) => (
+        {displayMovies?.Search.map((movie) => (
           <div
             key={movie.imdbID}
             className=" bg-gray-700 shadow-lg text-gray-200 cursor-pointer p-2 rounded-md font-['Montserrat']  flex flex-col justify-between gap-1"
