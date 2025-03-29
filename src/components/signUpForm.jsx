@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import supabase from "../store/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Name is required"),
   email: Yup.string()
@@ -46,6 +49,8 @@ const signUpForm = [
   },
 ];
 function SignUpForm() {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -61,10 +66,33 @@ function SignUpForm() {
       location: "",
     },
   });
-  function submit(data) {
-    console.log("data", data);
-    console.log("errors", errors);
-    reset();
+  async function submit(data) {
+    try {
+      setLoading(true);
+      const [firstName, ...lastNameParts] = data.fullName.split("");
+      const lastName = lastNameParts.join("");
+      const { error } = await supabase.auth.signUp({
+        email: data.email,
+        password: data.password,
+        options: {
+          data: {
+            firstName: firstName,
+            lastName: lastName,
+            phone: data.phone,
+            location: data.location,
+            about: data.about,
+          },
+        },
+      });
+      if (error) throw error;
+      navigate("/Home");
+      reset();
+      alert("Sign-up successful!");
+    } catch (error) {
+      alert(`Sign-up failed:${error.message}`);
+    } finally {
+      setLoading(false);
+    }
   }
   return (
     <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-2">
@@ -92,20 +120,25 @@ function SignUpForm() {
       <div className=" font-['Montserrat'] flex flex-col gap-1">
         <label className="text-xs text-gray-600 font-bold">About me</label>
         <textarea
+          {...register("about")}
           placeholder="Tell something about yourself"
           type="text"
           className="border-1 p-2 text-xs border-gray-400 w-100 focus:outline-none"
         />
       </div>
       <div className="self-end flex flex-row gap-8 items-center mt-2">
-        <button className="font-['montserrat'] text-xs text-gray-700 cursor-pointer hover:text-gray-900 transition delay-25">
+        <Link
+          to="/"
+          className="font-['montserrat'] text-xs text-gray-700 cursor-pointer hover:text-gray-900 transition delay-25"
+        >
           Cancel
-        </button>
+        </Link>
         <button
+          disabled={loading}
           className="text-center bg-gray-600 text-gray-100 text-xs w-24 h-8 self-end p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 "
           type="submit"
         >
-          Sign up
+          {loading ? "Signing-up" : "Signin"}
         </button>
       </div>
     </form>
