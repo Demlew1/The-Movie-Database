@@ -5,10 +5,12 @@ import MovieDetails from "./components/MovieDetails";
 import MovieStatus from "./components/MovieStatus";
 import WatchList from "./components/WatchList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 function App() {
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Router>
         <Routes>
           <Route path="/" element={<SignIn />} />
@@ -19,7 +21,7 @@ function App() {
           <Route path="/movies/:id" element={<MovieStatus />} />
         </Routes>
       </Router>
-    </div>
+    </QueryClientProvider>
   );
 }
 export default App;

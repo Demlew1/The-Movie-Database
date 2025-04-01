@@ -109,7 +109,11 @@ function SignIn() {
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <IoMdEye /> : <IoEyeOff />}
+                  {showPassword ? (
+                    <IoMdEye className="cursor-pointer" />
+                  ) : (
+                    <IoEyeOff className="cursor-pointer" />
+                  )}
                 </button>
               </div>
             </div>
