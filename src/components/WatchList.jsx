@@ -16,7 +16,7 @@ function WatchList() {
               className="font-['Montserrat'] bg-gray-500 p-1 px- flex flex-row gap-36 items-center rounded-sm pr-4 cursor-pointer transition delay-5 hover:bg-gray-700"
             >
               <div className="flex flex-row gap-4 items-center">
-                <img className="w-48 h-24" src={movie.Poster} />
+                <img className="w-18 h-20" src={movie.Poster} />
                 <div>
                   <p className="text-xs font-bold text-gray-100">
                     {movie.Title}
