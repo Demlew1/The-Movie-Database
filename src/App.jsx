@@ -21,6 +21,7 @@ function App() {
           <Route path="/movies/:id" element={<MovieStatus />} />
         </Routes>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
