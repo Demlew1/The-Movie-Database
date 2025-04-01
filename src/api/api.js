@@ -24,5 +24,5 @@ export async function searchMovies(query) {
 export async function fetchUser() {
   const { data: response, error } = await supabase.auth.getUser();
   if (error) throw new Error("error in fetching the user");
-  return response.json();
+  return response;
 }

@@ -69,15 +69,13 @@ function SignUpForm() {
   async function submit(data) {
     try {
       setLoading(true);
-      const [firstName, ...lastNameParts] = data.fullName.split("");
-      const lastName = lastNameParts.join("");
+
       const { error } = await supabase.auth.signUp({
         email: data.email,
         password: data.password,
         options: {
           data: {
-            firstName: firstName,
-            lastName: lastName,
+            fullName: data.fullName,
             phone: data.phone,
             location: data.location,
             about: data.about,

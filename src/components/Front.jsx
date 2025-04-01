@@ -1,4 +1,5 @@
 import NavBar from "./NavBar";
+
 function Front() {
   return (
     <div className="bg-[url(src/assets/images/Home-background.jpg)] bg-cover h-screen p-6">
