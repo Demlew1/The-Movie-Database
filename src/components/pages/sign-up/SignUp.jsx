@@ -1,16 +1,16 @@
 import SignUpForm from "./SignUpForm";
 function SignUp() {
   return (
-    <div className="bg-gray-200 h-screen grid grid-cols-1 place-items-center">
-      <div className="bg-gray-50 flex flex-row w-170  gap-12 items-start p-8">
-        <div className="bg-gray-600 text-gray-300 flex items-center justify-center  size-36 rounded-full text-center text-xl">
+    <div className="bg-gray-200 flex flex-row justify-center items-center h-screen">
+      <div className="bg-gray-50 flex flex-row gap-8 items-start p-4 rounded-sm">
+        <div className="bg-gray-600 text-gray-300 items-center justify-center  size-12 sm:size-24 md:size-32 rounded-full text-center text-xl hidden sm:flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="size-14"
+            className="size-6 sm:size-12 md:size:16 "
           >
             <path
               strokeLinecap="round"
