@@ -1,4 +1,4 @@
-import supabase from "../store/auth";
+import supabase from "../../../store/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";

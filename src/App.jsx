@@ -1,8 +1,8 @@
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import HomePage from "./components/HomePage";
-import MovieDetails from "./components/MovieDetails";
-import MovieStatus from "./components/MovieStatus";
+import SignIn from "./components/pages/sign-in/SignIn";
+import SignUp from "./components/pages/sign-up/SignUp";
+import HomePage from "./components/pages/Home-page/HomePage";
+import MovieDetails from "./components/pages/Movies/MovieDetails";
+import MovieStatus from "./components/pages/Movies/MovieStatus";
 import WatchList from "./components/WatchList";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";

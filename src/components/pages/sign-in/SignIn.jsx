@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import supabase from "../store/auth";
+import supabase from "../../../store/auth";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoEyeOff } from "react-icons/io5";

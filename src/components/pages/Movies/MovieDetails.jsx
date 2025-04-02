@@ -1,6 +1,6 @@
-import NavBar from "./NavBar";
+import NavBar from "../../NavBar";
 import MovieData from "./MovieData";
-import useSearchStore from "../store/useSearchStore";
+import useSearchStore from "../../../store/useSearchStore";
 function MovieDetails() {
   const { searchText, setSearchText } = useSearchStore();
   return (

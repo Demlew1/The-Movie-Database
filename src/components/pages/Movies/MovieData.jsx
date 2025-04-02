@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import Footer from "./Footer";
+import Footer from "../../Footer";
 import { useNavigate } from "react-router-dom";
-import { getMovie, searchMovies } from "../api/api";
-import useSearchStore from "../store/useSearchStore";
+import { getMovie, searchMovies } from "../../../api/api";
+import useSearchStore from "../../../store/useSearchStore";
 import { useState } from "react";
 import { useDebounce } from "use-debounce";
 import MovieSkeleton from "./MovieSkeleton";
