@@ -136,7 +136,7 @@ function SignUpForm() {
           className="text-center bg-gray-600 text-gray-100 text-xs w-24 h-8 self-end p-2 cursor-pointer font-bold hover:bg-gray-500 transition delay-10 "
           type="submit"
         >
-          {loading ? "Signing-up" : "Sign-up"}
+          {loading ? "Signing up" : "Sign up"}
         </button>
       </div>
     </form>
