@@ -1,9 +1,11 @@
 import NavBar from "./NavBar";
 import useListStore from "../store/useListStore";
-
+import Rating from "./Rating";
 function WatchList() {
   const watchList = useListStore((state) => state.watchList);
   const removeFromList = useListStore((state) => state.removeFromList);
+  const updateRating = useListStore((state) => state.updateRating);
+
   console.log(watchList);
   return (
     <div className="bg-gray-800 h-screen p-8 overflow-y-scroll">
@@ -28,7 +30,12 @@ function WatchList() {
               </div>
               <p className="text-xs text-gray-100">{movie.imdbRating}</p>
               <p className="text-xs w-20 text-gray-100">{movie.Runtime}</p>
-
+              <div className="w-24">
+                <Rating
+                  ratingGiven={movie.userRating}
+                  onRatingChange={(rate) => updateRating(movie.imdbID, rate)}
+                />
+              </div>
               <button
                 onClick={() => removeFromList(movie.imdbID)}
                 className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600"

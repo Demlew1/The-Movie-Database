@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
-function Rating() {
+function Rating({ ratingGiven = 0, onRatingChange }) {
   const [hoveredStar, setHoveredStar] = useState(null);
-  const [selectedRating, setSelectedRating] = useState(0);
+  const [selectedRating, setSelectedRating] = useState(ratingGiven);
   function handleClick(rating) {
     setSelectedRating(rating);
     onRatingChange(rating);
@@ -17,6 +17,7 @@ function Rating() {
                 ? "text-yellow-500"
                 : "text-gray-400"
             }`}
+            disabled={selectedRating > 0}
             onMouseEnter={() => setHoveredStar(star)}
             onMouseLeave={() => setHoveredStar(null)}
             onClick={() => handleClick(star)}

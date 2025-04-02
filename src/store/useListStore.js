@@ -7,7 +7,7 @@ const useListStore = create((set) => ({
         (movie) => movie.imdbID === newMovie.imdbID
       )
         ? state.watchList
-        : [...state.watchList, newMovie],
+        : [...state.watchList, { ...newMovie, userRating: 0 }],
     }));
   },
   removeFromList: (id) => {
@@ -15,5 +15,13 @@ const useListStore = create((set) => ({
       watchList: state.watchList.filter((movie) => movie.imdbID !== id),
     }));
   },
+  updateRating: (imdbID, newRating) => {
+    set((state) => ({
+      watchList: state.watchList.map((movie) =>
+        movie.imdbID === imdbID ? { ...movie, userRating: newRating } : movie
+      ),
+    }));
+  },
 }));
+
 export default useListStore;
