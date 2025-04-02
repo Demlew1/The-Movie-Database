@@ -32,7 +32,7 @@ function NavBar() {
           WatchList
         </Link>
       </div>
-      <div
+      <button
         onClick={() => setUserOpen(!userOpen)}
         className="bg-gray-500 size-10 rounded-full flex items-center justify-center cursor-pointer"
       >
@@ -51,7 +51,7 @@ function NavBar() {
           />
         </svg>
         {userOpen && <UserInfo />}
-      </div>
+      </button>
       {watchList.length > 0 && (
         <p className="absolute top-2 right-117 text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
           {watchList.length}
