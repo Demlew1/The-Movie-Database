@@ -4,6 +4,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import imdb from "../assets/images/imdb.svg";
 import { getMovieDetails } from "../api/api";
+import { FaStar } from "react-icons/fa";
 import useListStore from "../store/useListStore";
 function MovieStatus() {
   const addToWatchList = useListStore((state) => state.addToWatchList);
@@ -61,6 +62,7 @@ function MovieStatus() {
               <span className="font-bold text-amber-600">Released: </span>
               {movie.Released}
             </p>
+
             <div className="flex flex-row justify-between mt-10">
               <div className="flex flex-row items-center gap-2">
                 <img className="size-10 " src={imdb} alt="imdb-image" />

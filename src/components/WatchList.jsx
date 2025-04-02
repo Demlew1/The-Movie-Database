@@ -1,6 +1,6 @@
 import NavBar from "./NavBar";
-import star from "../assets/images/star.svg";
 import useListStore from "../store/useListStore";
+
 function WatchList() {
   const watchList = useListStore((state) => state.watchList);
   const removeFromList = useListStore((state) => state.removeFromList);
@@ -29,13 +29,6 @@ function WatchList() {
               <p className="text-xs text-gray-100">{movie.imdbRating}</p>
               <p className="text-xs w-20 text-gray-100">{movie.Runtime}</p>
 
-              <div className="flex flex-row">
-                <img className="size-5 " src={star} alt="star-image" />
-                <img className="size-5 " src={star} alt="star-image" />
-                <img className="size-5 " src={star} alt="star-image" />
-                <img className="size-5 " src={star} alt="star-image" />
-                <img className="size-5 " src={star} alt="star-image" />
-              </div>
               <button
                 onClick={() => removeFromList(movie.imdbID)}
                 className="font-bold text-[10px] text-gray-300 rounded-md bg-gray-800 p-1 hover:bg-gray-600"
