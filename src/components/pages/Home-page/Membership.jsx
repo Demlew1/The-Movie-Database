@@ -20,13 +20,13 @@ const premium = [
 function Membership() {
   return (
     <div className="bg-gray-100 mt-10 pt-4 text-center">
-      <div className="font-['Ubuntu']">
+      <div className="font-['Ubuntu'] mb-5">
         <p className="font-bold text-xl text-center">Demlix Membership</p>
-        <p className="font-['Rubik'] pt-2 font-light">
+        <p className="font-['Rubik'] pt-2 font-light text-xs mx-10">
           Choose the perfect subscription for your streaming needs
         </p>
       </div>
-      <div className="flex flex-col gap-2 items-center">
+      <div className="flex flex-col gap-12 items-center pb-12">
         <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center w-70 my-4 p-4 shadow-xs">
           <div className=" flex flex-row gap-2">
             <RiFlashlightFill className="size-5" />
