@@ -62,11 +62,11 @@ function MovieData() {
     );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-4">
       {noSearchResults && (
         <p className="font-mono text-gray-100 text-center py-10">{`No movies found for "${debouncedText}"`}</p>
       )}
-      <div className="flex flex-row flex-wrap gap-4 justify-center ">
+      <div className="flex flex-row flex-wrap gap-4  justify-center ">
         {displayMovies?.Search?.map((movie) => (
           <div
             key={movie.imdbID}
