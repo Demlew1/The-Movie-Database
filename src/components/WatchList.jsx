@@ -5,8 +5,6 @@ function WatchList() {
   const watchList = useListStore((state) => state.watchList);
   const removeFromList = useListStore((state) => state.removeFromList);
   const updateRating = useListStore((state) => state.updateRating);
-
-  console.log(watchList);
   return (
     <div className="bg-gray-800 h-screen  overflow-y-scroll">
       <NavBar />
@@ -31,7 +29,7 @@ function WatchList() {
               <p className="text-[10px] text-gray-100 sm:self-center text-center">
                 {movie.imdbRating}
               </p>
-              <p className="text-[10px] self-center w-20 text-center text-gray-100">
+              <p className="text-[10px] self-center text-center text-gray-100">
                 {movie.Runtime}
               </p>
               <div className=" sm:self-center justify-self-center">
@@ -52,7 +50,7 @@ function WatchList() {
           ))}
         </div>
       ) : (
-        <p className="font-mono text-amber-200 mt-40 text-center text-xs flex flex-row justify-center">
+        <p className="font-mono text-amber-200 ml-14 mt-40 text-center text-xs flex flex-row justify-center">
           Your watchlist is empty
         </p>
       )}

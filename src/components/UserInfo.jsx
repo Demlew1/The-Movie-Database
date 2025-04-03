@@ -35,10 +35,9 @@ function UserInfo() {
         {error.message}
       </p>
     );
-  console.log(userData);
   return (
     <div>
-      <span className="text-white font-['Montserrat'] bg-gray-900 flex flex-col items-center gap-2 p-3 rounded-md text-xs w-55 absolute top-13 right-2 ">
+      <span className="z-10 text-white font-['Montserrat'] bg-gray-900 flex flex-col items-center gap-2 p-3 rounded-md text-xs w-55 absolute top-15 right-2 ">
         <p className="">{userData.user.user_metadata.fullName}</p>
         <p>{userData.user.user_metadata.email}</p>
         <button

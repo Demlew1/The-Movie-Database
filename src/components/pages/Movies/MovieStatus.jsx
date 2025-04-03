@@ -17,6 +17,7 @@ function MovieStatus() {
   } = useQuery({
     queryKey: ["movieData", id],
     queryFn: () => getMovieDetails(id),
+    staleTime: 100000,
   });
   if (isLoading)
     return (
@@ -28,7 +29,6 @@ function MovieStatus() {
         {error.message}
       </p>
     );
-  console.log(movie);
   return (
     <div>
       <div className=" bg-gray-800 flex flex-col gap-8">
@@ -43,7 +43,7 @@ function MovieStatus() {
             <p className="text-2xl md:text-xl md:w-110 lg:text-2xl lg:w-140 font-bold text-center mb-2 sm:text-3xl">
               {movie.Title}
             </p>
-            <p className="text-[10px] sm:text-xs text-justify md:w-110 lg:w-150">
+            <p className="text-[10px] sm:text-xs text-justify lg:w-150">
               <span className="font-bold text-amber-600  text-xs sm:text-md">
                 Plot:{" "}
               </span>

@@ -31,7 +31,7 @@ function MovieData() {
   } = useQuery({
     queryKey: ["search", debouncedText],
     queryFn: () => searchMovies(debouncedText),
-    staleTime: 10000,
+    staleTime: 100000,
     keepPreviousData: true,
     enabled: !!debouncedText,
   });
