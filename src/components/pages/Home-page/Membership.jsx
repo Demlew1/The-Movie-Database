@@ -26,8 +26,8 @@ function Membership() {
           Choose the perfect subscription for your streaming needs
         </p>
       </div>
-      <div className="flex flex-col gap-12 items-center pb-12">
-        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center w-70 my-4 p-4 shadow-xs">
+      <div className="flex flex-col gap-12 items-center md:gap-12 lg:gap-18 sm:flex-row sm:gap-8 sm:justify-center pb-12">
+        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center w-70 md:w-80 my-4 p-4 shadow-xs">
           <div className=" flex flex-row gap-2">
             <RiFlashlightFill className="size-5" />
             <p className="self-center">Standard</p>
@@ -38,22 +38,22 @@ function Membership() {
               <span className="font-bold text-lg">14.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-60 cursor-pointer hover:bg-gray-700 hover:text-white p-1 text-[10px]">
+          <button className="border-1 w-60 md:w-70 md:p-2 cursor-pointer hover:bg-gray-700 hover:text-white p-1 text-[10px]">
             Select this plan
           </button>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 md:gap-3 md:pt-2">
             {standard.map((message) => (
               <div
                 className="flex flex-row items-center gap-2"
                 key={message.id}
               >
-                <IoCheckmark className="size-3" />
-                <p className="text-[8px]">{message.message}</p>
+                <IoCheckmark className="size-3 lg:size-4" />
+                <p className="text-[8px] md:text-[10px]">{message.message}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center p-4 shadow-xs border-1 w-70 border-gray-600">
+        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center p-4 shadow-xs border-1 w-70 md:w-82 lg:w-83 border-gray-600">
           <div className=" flex flex-row gap-2">
             <FaCrown className="size-5" />
             <p className="self-center">Premium</p>
@@ -64,17 +64,17 @@ function Membership() {
               <span className="font-bold text-lg">19.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-60 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-1 text-[10px]">
+          <button className="border-1 w-60 md:w-70 lg:w-74 md:p-2 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-1 text-[10px]">
             Select this plan
           </button>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 md:gap-3 md:pt-2">
             {premium.map((message) => (
               <div
                 className="flex flex-row items-center gap-2"
                 key={message.id}
               >
-                <IoCheckmark className="size-3" />
-                <p className="text-[8px]">{message.message}</p>
+                <IoCheckmark className="size-3 lg:size-4" />
+                <p className="text-[8px] md:text-[10px]">{message.message}</p>
               </div>
             ))}
           </div>
