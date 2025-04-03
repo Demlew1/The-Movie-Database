@@ -8,11 +8,11 @@ function Rating({ ratingGiven = 0, onRatingChange }) {
     onRatingChange(rating);
   }
   return (
-    <div className="flex flex-row mt-3">
+    <div className="flex flex-row justify-center">
       {[1, 2, 3, 4, 5].map((star) => (
         <div key={star}>
           <FaStar
-            className={`cursor-pointer transition-all ${
+            className={`cursor-pointer transition-all sm:size-3 md:size-4 ${
               star <= (hoveredStar || selectedRating)
                 ? "text-yellow-500"
                 : "text-gray-400"
