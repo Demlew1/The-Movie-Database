@@ -8,13 +8,13 @@ function NavBar() {
   const watchList = useListStore((state) => state.watchList);
   const [userOpen, setUserOpen] = useState(false);
   return (
-    <div className="flex flex-row justify-between items-center relative px-6 pt-6 sm:px-8 sm:py-6 ">
+    <div className="flex flex-row justify-between items-center px-6 pt-6 sm:px-8 sm:py-6 ">
       <div className=" flex flex-row items-center gap-1 cursor-pointer">
         <img className="size-8" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
       </div>
       <IoMdMenu className="size-6 text-white md:hidden" />
-      <div className="font-['Montserrat'] text-gray-300 text-xs hidden md:flex flex-row gap-8 ">
+      <div className="font-['Montserrat']  text-gray-300 text-xs hidden md:flex flex-row gap-8 ">
         <Link
           to="/Home"
           className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 "
@@ -29,7 +29,7 @@ function NavBar() {
         </Link>
         <Link
           to="/watchlist"
-          className="cursor-pointer  hover:text-gray-500 transition delay-25"
+          className="cursor-pointer hover:text-gray-500 transition delay-25"
         >
           WatchList
         </Link>
@@ -55,7 +55,7 @@ function NavBar() {
         {userOpen && <UserInfo />}
       </button>
       {watchList.length > 0 && (
-        <p className="absolute top-2 right-117 text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
+        <p className="absolute top-0  text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
           {watchList.length}
         </p>
       )}

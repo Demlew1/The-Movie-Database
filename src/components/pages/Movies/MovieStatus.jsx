@@ -5,6 +5,7 @@ import Footer from "../../Footer";
 import imdb from "../../../assets/images/imdb.svg";
 import { getMovieDetails } from "../../../api/api";
 import useListStore from "../../../store/useListStore";
+
 function MovieStatus() {
   const addToWatchList = useListStore((state) => state.addToWatchList);
   const { id } = useParams();
@@ -30,57 +31,71 @@ function MovieStatus() {
   console.log(movie);
   return (
     <div>
-      <div className="px-8 pt-8 h-screen  bg-gray-800 flex flex-col gap-8">
+      <div className=" bg-gray-800 flex flex-col gap-8">
         <NavBar />
-        <div className="bg-gray-600 w-250 flex flex-row gap-4 p-4 self-center">
+        <div className="bg-gray-600 flex flex-col md:p-4 md:flex-row md:gap-2 gap-1 p-1 mx-2 rounded-sm self-center">
           <img
-            className="rounded-sm size-90 self-center "
+            className="rounded-sm size-60 md:size-80 self-center "
             src={movie.Poster}
             alt="movie's poster"
           />
-          <div className="text-gray-100 font-['Montserrat'] flex flex-col gap-1 p-2">
-            <p className="text-2xl font-bold text-center mb-4">{movie.Title}</p>
-            <p className="text-xs text-justify">
-              <span className="font-bold text-amber-600">Plot: </span>
+          <div className="text-gray-100 font-['Montserrat'] flex flex-col gap-1 p-1">
+            <p className="text-2xl md:text-xl md:w-110 lg:text-2xl lg:w-140 font-bold text-center mb-2 sm:text-3xl">
+              {movie.Title}
+            </p>
+            <p className="text-[10px] sm:text-xs text-justify md:w-110 lg:w-150">
+              <span className="font-bold text-amber-600  text-xs sm:text-md">
+                Plot:{" "}
+              </span>
               {movie.Plot}
             </p>
-            <p className="text-xs mt-8">
+            <p className="text-[10px] mt-2 md:mt-4 sm:text-xs">
               {" "}
-              <span className="font-bold text-amber-600">Director: </span>
+              <span className="font-bold text-amber-600 text-xs sm:text-md">
+                Director:{" "}
+              </span>
               {movie.Director}
             </p>
-            <p className=" text-xs">
-              <span className="font-bold text-amber-600">Actors: </span>
+            <p className=" text-[10px] sm:text-xs">
+              <span className="font-bold text-amber-600 text-xs sm:text-md">
+                Actors:{" "}
+              </span>
               {movie.Actors}
             </p>
-            <p className=" text-xs">
-              <span className="font-bold text-amber-600">Genre: </span>
+            <p className=" text-[10px] sm:text-xs">
+              <span className="font-bold text-amber-600 text-xs sm:text-md">
+                Genre:{" "}
+              </span>
               {movie.Genre}
             </p>
-            <p className=" text-xs">
-              <span className="font-bold text-amber-600">Released: </span>
+            <p className=" text-[10px] sm:text-xs">
+              <span
+                className="font-bold text-amber-600 text-xs sm:text-md
+              "
+              >
+                Released:{" "}
+              </span>
               {movie.Released}
             </p>
-
+            <div className="flex flex-row items-center gap-2">
+              <img className="size-8" src={imdb} alt="imdb-image" />
+              <p className="text-xs">{movie.imdbRating}</p>
+            </div>
             <div className="flex flex-row justify-between mt-10">
-              <div className="flex flex-row items-center gap-2">
-                <img className="size-10 " src={imdb} alt="imdb-image" />
-                <p className="text-sm">{movie.imdbRating}</p>
-              </div>
-              <p className="text-[10px] border-1 p-1 rounded-full w-18 flex flex-row items-center justify-center">
+              <p className="text-[8px] sm:text-[10px] border-1 rounded-full w-16 flex flex-row items-center justify-center">
                 {movie.Runtime}
               </p>
               <button
                 onClick={() => addToWatchList(movie)}
-                className="text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-950 transition delay-10"
+                className="text-[10px] text-xs bg-gray-900 p-2 rounded-sm cursor-pointer hover:bg-gray-950 transition delay-10"
               >
                 Add to watchlist
               </button>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 }

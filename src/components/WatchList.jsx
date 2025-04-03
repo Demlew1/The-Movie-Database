@@ -8,7 +8,7 @@ function WatchList() {
 
   console.log(watchList);
   return (
-    <div className="bg-gray-800 h-screen p-8 overflow-y-scroll">
+    <div className="bg-gray-800 h-screen  overflow-y-scroll">
       <NavBar />
       {watchList.length > 0 ? (
         <div className="bg-gray-600 p-12 rounded-md m-8 flex flex-col gap-6">
@@ -46,7 +46,7 @@ function WatchList() {
           ))}
         </div>
       ) : (
-        <p className="font-mono text-amber-200 mt-40 ml-16 flex flex-row justify-center">
+        <p className="font-mono text-amber-200 mt-40 text-center text-xs flex flex-row justify-center">
           Your watchlist is empty
         </p>
       )}
