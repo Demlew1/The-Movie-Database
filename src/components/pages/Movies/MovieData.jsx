@@ -50,7 +50,7 @@ function MovieData() {
     );
   if (isError)
     return (
-      <p className="text-red-500 text-center font-mono h-screen">
+      <p className="text-red-500 text-center text-xs font-mono h-screen">
         {error.message}
       </p>
     );

@@ -8,7 +8,7 @@ function NavBar() {
   const watchList = useListStore((state) => state.watchList);
   const [userOpen, setUserOpen] = useState(false);
   return (
-    <div className="flex flex-row justify-between items-center relative px-6 py-6 sm:px-8 sm:py-6 ">
+    <div className="flex flex-row justify-between items-center relative px-6 pt-6 sm:px-8 sm:py-6 ">
       <div className=" flex flex-row items-center gap-1 cursor-pointer">
         <img className="size-8" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
