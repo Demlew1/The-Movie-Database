@@ -19,63 +19,62 @@ const premium = [
 
 function Membership() {
   return (
-    <div className="bg-gray-100 pt-12 text-center">
+    <div className="bg-gray-100 mt-10 pt-4 text-center">
       <div className="font-['Ubuntu']">
-        <p className="font-bold text-3xl text-center">Demlix Membership</p>
-        <p className="font-['Rubik'] pt-4 font-light">
+        <p className="font-bold text-xl text-center">Demlix Membership</p>
+        <p className="font-['Rubik'] pt-2 font-light">
           Choose the perfect subscription for your streaming needs
         </p>
       </div>
-      <div className="flex flex-row gap-24 justify-center">
-        <div className="bg-white font-['Montserrat'] text-xs inline-flex flex-col gap-4 justify-center my-20 p-4 shadow-xs">
+      <div className="flex flex-col gap-2 items-center">
+        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center w-70 my-4 p-4 shadow-xs">
           <div className=" flex flex-row gap-2">
             <RiFlashlightFill className="size-5" />
             <p className="self-center">Standard</p>
           </div>
-          <div className="text-2xl font-bold self-start flex flex-row gap-1 items-center">
+          <div className="text-lg font-bold self-start flex flex-row gap-1 items-center">
             <FaDollarSign />
             <p className="text-xs font-light">
-              <span className="font-bold text-2xl">14.99</span>/ month
+              <span className="font-bold text-lg">14.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-85 cursor-pointer hover:bg-gray-700 hover:text-white p-2 text-xs">
+          <button className="border-1 w-60 cursor-pointer hover:bg-gray-700 hover:text-white p-1 text-[10px]">
             Select this plan
           </button>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             {standard.map((message) => (
               <div
-                className="flex flex-row items-center gap-4"
+                className="flex flex-row items-center gap-2"
                 key={message.id}
               >
-                <IoCheckmark className="size-5" />
-                <p>{message.message}</p>
+                <IoCheckmark className="size-3" />
+                <p className="text-[8px]">{message.message}</p>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-white font-['Montserrat'] text-xs inline-flex flex-col gap-4 justify-center my-20 p-4 shadow-xs border-1 border-gray-600">
+        <div className="bg-white font-['Montserrat'] text-xs flex flex-col gap-2 justify-center p-4 shadow-xs border-1 w-70 border-gray-600">
           <div className=" flex flex-row gap-2">
             <FaCrown className="size-5" />
-
             <p className="self-center">Premium</p>
           </div>
-          <div className="text-2xl font-bold self-start flex flex-row gap-1 items-center">
+          <div className="text-lg font-bold self-start flex flex-row gap-1 items-center">
             <FaDollarSign />
             <p className="text-xs font-light">
-              <span className="font-bold text-2xl">19.99</span>/ month
+              <span className="font-bold text-lg">19.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-85 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-2 text-xs">
+          <button className="border-1 w-60 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-1 text-[10px]">
             Select this plan
           </button>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             {premium.map((message) => (
               <div
-                className="flex flex-row items-center gap-4"
+                className="flex flex-row items-center gap-2"
                 key={message.id}
               >
-                <IoCheckmark className="size-5" />
-                <p>{message.message}</p>
+                <IoCheckmark className="size-3" />
+                <p className="text-[8px]">{message.message}</p>
               </div>
             ))}
           </div>

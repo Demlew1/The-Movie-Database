@@ -50,7 +50,7 @@ function SignIn() {
   }
   return (
     <div className="bg-gray-100 h-screen font-['Ubuntu'] flex flex-col pt-10 gap-4">
-      <div className="text-center">
+      <div className="text-center ">
         <p className="font-['Ubuntu'] font-bold text-lg sm:text-xl md:text-2xl lg:text-[30px] xl:text-[40px]">
           Unlock a world of endless entertainment
         </p>

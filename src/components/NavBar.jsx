@@ -3,16 +3,18 @@ import { Link } from "react-router-dom";
 import useListStore from "../store/useListStore";
 import UserInfo from "./UserInfo";
 import { useState } from "react";
+import { IoMdMenu } from "react-icons/io";
 function NavBar() {
   const watchList = useListStore((state) => state.watchList);
   const [userOpen, setUserOpen] = useState(false);
   return (
-    <div className="flex flex-row justify-between items-center px-8 relative">
+    <div className="flex flex-row justify-between items-center relative px-6 py-6 sm:px-8 sm:py-6 ">
       <div className=" flex flex-row items-center gap-1 cursor-pointer">
-        <img className="size-12" src={playLogo} alt="play Logo" />
+        <img className="size-8" src={playLogo} alt="play Logo" />
         <p className="font-['Barriecito'] uppercase text-white">demilx</p>
       </div>
-      <div className="font-['Montserrat'] flex flex-row gap-4 text-gray-300 text-xs">
+      <IoMdMenu className="size-6 text-white md:hidden" />
+      <div className="font-['Montserrat'] text-gray-300 text-xs hidden md:flex flex-row gap-8 ">
         <Link
           to="/Home"
           className="cursor-pointer border-gray-100 hover:text-gray-500 transition delay-25 "
@@ -34,7 +36,7 @@ function NavBar() {
       </div>
       <button
         onClick={() => setUserOpen(!userOpen)}
-        className="bg-gray-500 size-10 rounded-full flex items-center justify-center cursor-pointer"
+        className="bg-gray-500 size-8 rounded-full cursor-pointer hidden md:flex md:flex-row md:justify-center md:items-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +44,7 @@ function NavBar() {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="size-5 text-white"
+          className="size-4 text-white"
         >
           <path
             strokeLinecap="round"
