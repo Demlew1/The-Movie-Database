@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import NavBar from "../../NavBar";
 import Footer from "../../Footer";
-import imdb from "../../../assets/images/imdb.svg";
+import imdb from "../../../../public/images/imdb.svg";
 import { getMovieDetails } from "../../../api/api";
 import useListStore from "../../../store/useListStore";
 

@@ -1,4 +1,4 @@
-import playLogo from "../assets/images/play-logo.svg";
+import playLogo from "../../public/images/play-logo.svg";
 import { Link } from "react-router-dom";
 import useListStore from "../store/useListStore";
 import UserInfo from "./UserInfo";

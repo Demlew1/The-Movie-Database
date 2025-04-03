@@ -1,5 +1,5 @@
-import chooseUs1 from "../../../assets/images/chooseUs1.jpg";
-import chooseUs from "../../../assets/images/chooseUs.jpg";
+import chooseUs1 from "../../../../public/images/chooseUs1.jpg";
+import chooseUs from "../../../../public/images/chooseUs.jpg";
 function ChooseUs() {
   return (
     <div className="flex flex-col gap-4 sm:gap-6 pb-1 ">

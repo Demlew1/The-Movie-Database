@@ -1,8 +1,8 @@
-import imdb from "../../../assets/images/imdb.svg";
-import netflix from "../../../assets/images/netflix.svg";
-import hbo from "../../../assets/images/hbo.svg";
-import disney from "../../../assets/images/disney.svg";
-import marvel from "../../../assets/images/marvel.svg";
+import imdb from "../../../../public/images/imdb.svg";
+import netflix from "../../../../public/images/netflix.svg";
+import hbo from "../../../../public/images/hbo.svg";
+import disney from "../../../../public/images/disney.svg";
+import marvel from "../../../../public/images/marvel.svg";
 
 function Logos() {
   return (
