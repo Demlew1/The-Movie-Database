@@ -29,9 +29,14 @@ function NavBar() {
         </Link>
         <Link
           to="/watchlist"
-          className="cursor-pointer hover:text-gray-500 transition delay-25"
+          className="cursor-pointer relative hover:text-gray-500 transition delay-25"
         >
           WatchList
+          {watchList.length > 0 && (
+            <p className="absolute bottom-2 left-15  text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
+              {watchList.length}
+            </p>
+          )}
         </Link>
       </div>
       <button
@@ -54,11 +59,6 @@ function NavBar() {
         </svg>
         {userOpen && <UserInfo />}
       </button>
-      {watchList.length > 0 && (
-        <p className="absolute top-0  text-gray-100 text-xs bg-indigo-800 font-mono size-4 flex flex-row justify-center items-center rounded-full ">
-          {watchList.length}
-        </p>
-      )}
     </div>
   );
 }
