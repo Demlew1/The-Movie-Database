@@ -2,7 +2,7 @@ import NavBar from "../../NavBar";
 
 function Front() {
   return (
-    <div className="bg-[url(public/images/Home-background.jpg)] bg-cover w-full h-screen ">
+    <div className="bg-[url(/images/Home-background.jpg)] bg-cover w-full h-screen ">
       <div>
         <NavBar />
       </div>
