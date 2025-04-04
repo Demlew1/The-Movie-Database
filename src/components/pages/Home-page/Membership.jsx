@@ -18,6 +18,9 @@ const premium = [
 ];
 
 function Membership() {
+  function handlePlan() {
+    alert("Your decision is accepted");
+  }
   return (
     <div className="bg-gray-100 mt-10 pt-4 text-center">
       <div className="font-['Ubuntu'] mb-5">
@@ -38,7 +41,10 @@ function Membership() {
               <span className="font-bold text-lg">14.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-60 md:w-70 md:p-2 cursor-pointer hover:bg-gray-700 hover:text-white p-1 text-[10px]">
+          <button
+            onClick={handlePlan}
+            className="border-1 w-60 md:w-70 md:p-2 cursor-pointer hover:bg-gray-700 hover:text-white p-1 text-[10px]"
+          >
             Select this plan
           </button>
           <div className="flex flex-col gap-2 md:gap-3 md:pt-2">
@@ -64,7 +70,10 @@ function Membership() {
               <span className="font-bold text-lg">19.99</span>/ month
             </p>
           </div>
-          <button className="border-1 w-60 md:w-70 lg:w-74 md:p-2 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-1 text-[10px]">
+          <button
+            onClick={handlePlan}
+            className="border-1 w-60 md:w-70 lg:w-74 md:p-2 cursor-pointer hover:bg-white hover:text-black bg-gray-700 text-white p-1 text-[10px]"
+          >
             Select this plan
           </button>
           <div className="flex flex-col gap-2 md:gap-3 md:pt-2">
