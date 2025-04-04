@@ -24,6 +24,7 @@ function UserInfo() {
   } = useQuery({
     queryKey: ["user"],
     queryFn: fetchUser,
+    staleTime: 100000,
   });
   if (isLoading)
     return (
@@ -35,6 +36,7 @@ function UserInfo() {
         {error.message}
       </p>
     );
+  console.log("userdata", userData);
   return (
     <div>
       <span className="z-10 text-white font-['Montserrat'] bg-gray-900 flex flex-col items-center gap-2 p-3 rounded-md text-xs w-55 absolute top-15 right-2 ">

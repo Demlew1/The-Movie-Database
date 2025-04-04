@@ -6,6 +6,7 @@ import supabase from "../../../store/auth";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoEyeOff } from "react-icons/io5";
+import useListStore from "../../../store/useListStore";
 const validationSchema = Yup.object({
   email: Yup.string()
     .required("Email is required")
@@ -35,6 +36,8 @@ function SignIn() {
     setIsLoading(true);
     setAuthError(null);
     try {
+      localStorage.removeItem("watchlist-storage");
+      useListStore.setState({ watchList: [] });
       const { error } = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password,

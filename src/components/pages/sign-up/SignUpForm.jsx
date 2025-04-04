@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useListStore from "../../../store/useListStore";
 const validationSchema = Yup.object({
   fullName: Yup.string().required("Name is required"),
   email: Yup.string()
@@ -68,8 +69,9 @@ function SignUpForm() {
   });
   async function submit(data) {
     try {
+      localStorage.removeItem("watchlist-storage");
+      useListStore.setState({ watchList: [] });
       setLoading(true);
-
       const { error } = await supabase.auth.signUp({
         email: data.email,
         password: data.password,
