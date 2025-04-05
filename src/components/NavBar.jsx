@@ -21,7 +21,7 @@ function NavBar() {
       />
       {menuOpen && (
         <div
-          className={`font-['Montserrat'] gap-2 absolute top-14 rounded-sm right-6 z-10  bg-gray-700 p-2 w-40  flex flex-col text-gray-300 text-xs md:flex md:flex-row md:gap-8 `}
+          className={`font-['Montserrat'] gap-2 absolute top-14 rounded-sm right-6 z-10 md:hidden  bg-gray-700 p-2 w-40  flex flex-col text-gray-300 text-xs md:gap-8 `}
         >
           <Link
             to="/Home"
